@@ -29,5 +29,6 @@ module.exports.add = function(req, res){
 	
 	mvTime.save(function(err, mvTime){
 		if(err){console.log(err)}
+		else res.redirect('/api/items');
 	});
 }
