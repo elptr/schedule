@@ -1,0 +1,160 @@
+//variables
+@color-bg: #00cccc;
+@font-color2:#222;
+
+.relative{
+  position:relative;
+}
+.absolute{
+  position:absolute;
+}
+.font-90{
+  font-size:90%;
+}
+.font-100{
+  font-size:100%;
+}
+.padding(@padding:20px 0){
+  padding:@padding;
+}
+.font-color-222{
+  color:#222;
+}
+.font-color-444{
+  color:#444;
+}
+.background-color-f7f7f7{
+  background-color:#f7f7f7;
+}
+.background-color-fff{
+  background-color:#fff;
+}
+.inline-block{
+  display:inline-block;
+  vertical-align:top;
+}
+.border(@border:1px solid #ddd){
+  border:@border;
+}
+
+.fontLight{
+  font-weight:300;
+}
+.fontNormal{
+  font-weight:400;
+}
+.fontBold{
+  font-weight:700;
+}
+.fontHelAriSans{
+  font-family:"Helvetica", Arial, verdana, sans-serif;
+}
+.fontOpenSans{
+  font-family:"Open Sans";
+}
+.lineHeight100{
+  line-height:100;
+}
+.lineHeight180{
+  line-height:180;
+}
+.rounded-corners(@radius: 3px){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+*{
+  //margin: 0;
+ // padding:0;
+  //-webkit-margin-before: 0;
+  //-webkit-margin-after: 0;
+  //-webkit-margin-start: 0;
+  //-webkit-margin-end: 0;
+  //position:relative;
+}
+body{
+  //.fontHelAriSans;
+  //.lineHeight100
+}
+
+h1, h2, h3, h4, h5, h6{
+  line-height:1;
+  font-weight:100;
+}
+h1{
+  font-size: 150%;
+  margin-bottom:30px;
+}
+h2{
+  font-size: 120%;
+  margin-bottom:20px;
+}
+h3{
+  font-size: 110%;
+  margin-bottom:20px;
+}
+h4{
+  font-size: 100%;
+}
+h5{
+  font-size: 90%;
+}
+h6{
+  font-size: 80%;
+}
+input [type="text"]:focus, input [type="password"]:focus, textarea:focus{
+  outline:none;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:none;
+}
+ul li{
+  list-style:none;
+}
+
+ol li{
+  list-style-position: inside;
+}
+#container{
+  .background-color-f7f7f7;
+  .padding;
+  
+}
+.tab{
+  width:40%;
+  margin: 0 3% 3%;
+  .inline-block;
+  //.fontOpenSans;
+  .fontLight;
+}
+
+fieldset{
+  .relative;
+  .border;
+  .rounded-corners;
+  .font-color-444;
+  .padding(40% 0);
+}
+
+legend{
+  .font-color-222;
+  .font-100;
+  
+}
+fieldset div{
+  .absolute;
+  top:40%;
+  .font-90;
+  text-align:center;
+  width:100%
+}
+
+fieldset div p{
+  
+}

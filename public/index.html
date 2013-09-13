@@ -1,0 +1,69 @@
+<html>
+<head>
+	
+	<link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+	<link rel="stylesheet" type="text/css" href="http://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700,600">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		    less = {
+		        env: "development", // or "production"
+		        async: false,       // load imports async
+		        fileAsync: false,   // load imports async when in a page under
+		                            // a file protocol
+		        poll: 1000,         // when in watch mode, time in ms between polls
+		        functions: {},      // user functions, keyed by name
+		        dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+		        relativeUrls: false,// whether to adjust url's to be relative
+		                            // if false, url's are already relative to the
+		                            // entry less file
+		        rootpath: ":/a.com/"// a path to add on to the start of every url
+		                            //resource
+		    };
+		</script>
+		<script type="text/javascript" src="lib/less-1.4.1.min.js"></script>
+		<script type="text/javascript" src="lib/backbone-min.js"></script>
+		<script  src="http://localhost:9810/compile?id=compileSettings&mode=SIMPLE"></script>
+		<!-- mode can be WHITESPACE, SIMPLE, ADVANCED-->	
+		
+</head>
+<body>
+	
+	<div id="container">
+		<a class="tab" href="/add">
+			<fieldset> 
+				<legend>Add Time</legend>
+				<div class="tab-text">
+					<p>Add Time of MV</p>
+				</div>
+			</fieldset>
+		</a>
+		<a class="tab" href="/edit">
+			<fieldset>
+				<legend>Edit MV</legend>
+				<div class="tab-text">
+					<p>Edit of Daily MV</p>
+				</div>
+			</fieldset>
+		</a>
+		<a class="tab" href="/daily-list">
+			<fieldset>
+				<legend>Daily MV</legend>
+				<div class="tab-text">
+					<p>List of Daily MV</p>
+				</div>
+			</fieldset>
+		</a>
+		
+		<a class="tab" href="/list">
+			<fieldset> 
+				<legend>Charts</legend>
+				<div class="tab-text">
+					<p>Statistics</p>
+				</div>
+			</fieldset>
+		</a>
+	</div>
+</body>
+</html>

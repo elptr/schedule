@@ -1,0 +1,68 @@
+<html>
+<head>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
+<body>
+	
+	
+	<form action="/api/items" method="post">
+		<div id="today-date">September 06, 2013</div>
+		<div id="date">
+			<label for="date">Choose Day</label>
+			<input type="text" name="date" class="datepicker">
+		</div>
+		<div id="week">
+			<label for="fdlmp">Choose First Day Of Last Menstrual Period</label>
+			<input type="fdlmp" name="fdlmp" class="datepicker">
+		</div>
+		<div id="hours">
+			<label for="hours">Choose Hour(s)</label>
+			<select name="hours">
+				<option>07</option>
+				<option>08</option>
+				<option>09</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				<option>13</option>
+				<option>14</option>
+				<option>15</option>
+				<option>16</option>
+				<option>17</option>
+				<option>18</option>
+				<option>19</option>
+				<option>20</option>
+				<option>21</option>
+				<option>22</option>
+				<option>23</option>
+				<option>24</option>
+				<option>01</option>
+				<option>02</option>
+				<option>03</option>
+				<option>04</option>
+				<option>05</option>
+				<option>06</option>
+			</select>
+		</div>
+		<div id="minutes">
+			<label for="minutes">Choose Minute(s)</label>
+			<select name="minutes"> 
+				<option>00</option>
+				<option>10</option>
+				<option>20</option>
+				<option>30</option>
+				<option>40</option>
+				<option>50</option>
+			</select>
+		</div>
+		<input type='submit' value="Save"/>
+	</form>
+	<script>
+		$(function() {
+			$( ".datepicker" ).datepicker();
+		});
+	</script>
+</body>
+</html>
