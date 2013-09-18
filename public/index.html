@@ -23,47 +23,26 @@
 		    };
 		</script>
 		<script type="text/javascript" src="lib/less-1.4.1.min.js"></script>
+		<script type="text/javascript" src="lib/underscore-min.js"></script>
 		<script type="text/javascript" src="lib/backbone-min.js"></script>
+
+		<script type="text/javascript" src="lib/handlebars.js"></script>
+		<script type="text/javascript" src="templates.js"></script>
+
+
 		<script  src="http://localhost:9810/compile?id=compileSettings&mode=SIMPLE"></script>
 		<!-- mode can be WHITESPACE, SIMPLE, ADVANCED-->	
+
+
+	<script>
+	        //Backbone.Model.prototype.idAttribute = '_id';
+	        //goog.require('router');
+	        
+	</script>
 		
 </head>
 <body>
 	
-	<div id="container">
-		<a class="tab" href="/add">
-			<fieldset> 
-				<legend>Add Time</legend>
-				<div class="tab-text">
-					<p>Add Time of MV</p>
-				</div>
-			</fieldset>
-		</a>
-		<a class="tab" href="/edit">
-			<fieldset>
-				<legend>Edit MV</legend>
-				<div class="tab-text">
-					<p>Edit of Daily MV</p>
-				</div>
-			</fieldset>
-		</a>
-		<a class="tab" href="/daily-list">
-			<fieldset>
-				<legend>Daily MV</legend>
-				<div class="tab-text">
-					<p>List of Daily MV</p>
-				</div>
-			</fieldset>
-		</a>
-		
-		<a class="tab" href="/list">
-			<fieldset> 
-				<legend>Charts</legend>
-				<div class="tab-text">
-					<p>Statistics</p>
-				</div>
-			</fieldset>
-		</a>
-	</div>
+	<div id="container"></div>
 </body>
 </html>

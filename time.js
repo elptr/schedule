@@ -8,7 +8,7 @@ var handlers = require('./handlers');
 
 
 /* Express */
-app.use("/", express.static(__dirname + "/timeline"));
+app.use("/", express.static(__dirname + "/public"));
 app.use(express.bodyParser());
 
 app.get('/api/items', handlers.all);

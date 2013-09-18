@@ -1,0 +1,16 @@
+<html>
+	<body>
+	<ul>
+	{{#items}}
+		<li>
+			<ul>
+				<li>{{date}}</li>
+				<li>{{hour}}</li>
+				<li>{{minute}}</li>
+				<li>{{date}}</li>
+			</ul>
+		</li>
+	{{/items}}
+	</ul>
+	</body>
+</html>
