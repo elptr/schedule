@@ -22,11 +22,11 @@ $(document).ready(function(){
 	var Model = Backbone.Model.extend({
 		urlRoot: '/item',
 	    defaults: {
-		date: "",
-	  	hour: 0,
-	  	minute: 0,
-	  	fdlmp: ""
-	    }
+			date: "",
+		  	hour: 0,
+		  	minute: 0,
+		  	fdlmp: ""
+		}
 	});
 	
 	//Collection
@@ -119,10 +119,12 @@ $(document).ready(function(){
 		},
 		
 		initialize: function(){
-			this.template = Handlebars.templates['item']
+			this.template = Handlebars.templates['item'];
 		},
 		render:function(){
+			console.log("1");
 			console.log(this.model.toJSON());
+			console.log("2");
 			var res = this.template(this.model.toJSON());
 			this.$el.html(res);
 			return this;
@@ -174,14 +176,15 @@ $(document).ready(function(){
 			this.itemView.render();
 		},
 		edit: function(id){
+			console.log("Hi");
             var that = this;
             that.m = new Model();
             that.m.set({"_id": id});
-            that.m.fetch({
-            	reset: true,
+            that.m.fetch({            	
                 success: function () {
-                    that.editView = new ItemView({model: that.m});
-                    that.editView.render();
+					console.log(that.m);
+					that.editView = new ItemView({model : that.m});
+					that.editView.render(); 
                 }
             });
         }

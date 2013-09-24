@@ -42,7 +42,33 @@ module.exports.add = function(req, res){
 module.exports.getItem = function(req, res){
 	var dbData = Time.find({_id: req.params.id}, function(err, docs){
 		if(err) 'db find error';
-		
-		res.send(docs);
+		//console.log(docs);
+		res.send(docs[0]);
 	});
+};
+
+
+//Save Edited Item (By ID)
+module.exports.save = function(req, res){
+	
+	Time.update({_id: req.params.id },
+		{
+			today: Date.now(),
+			"date": req.body.date,
+			"hour": req.body.hour,
+			"minute": req.body.minute,
+			"fdlmp": req.body.fdlmp
+		},
+         /*{$push: { 'sent-messages' : delivered }},{upsert:true},*/ 
+         function(err, data) 
+         {
+			if (err) {
+				console.log(req.body);
+				res.send(err);
+			} else {
+				res.send('ok');
+			}
+		}
+	);
+
 };

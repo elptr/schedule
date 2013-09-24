@@ -19,10 +19,23 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 templates['item'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  return "\r\n<form>\r\n	<div>\r\n		<label>Date</label>\r\n		<input type=\"text\" name=\"date\"/>\r\n	</div>\r\n	<div>\r\n		<label>Hour</label>\r\n		<input type=\"text\" name=\"hour\"/>\r\n	</div>\r\n	<div>\r\n		<label>Minute</label>\r\n		<input type=\"text\" name=\"minute\"/>\r\n	</div>\r\n	\r\n	<input type=\"submit\" class=\"submitButton\" value=\"Add\"/>\r\n</form>";
+  buffer += "\r\n<form>\r\n	<div>\r\n		<label>Date</label>\r\n		<input type=\"text\" name=\"date\" value=\"";
+  if (stack1 = helpers.date) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.date; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"/>\r\n	</div>\r\n	<div>\r\n		<label>Hour</label>\r\n		<input type=\"text\" name=\"hour\" value=\"";
+  if (stack1 = helpers.hour) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.hour; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"/>\r\n	</div>\r\n	<div>\r\n		<label>Minute</label>\r\n		<input type=\"text\" name=\"minute\" value=\"";
+  if (stack1 = helpers.minute) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.minute; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"/>\r\n	</div>\r\n	\r\n	<input type=\"submit\" class=\"submitButton\" value=\"Add\"/>\r\n</form>";
+  return buffer;
   });
 templates['list-item'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
