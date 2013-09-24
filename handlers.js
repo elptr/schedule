@@ -11,6 +11,8 @@ var app = express();
 //var template = hbs.compile(templateSource);
 //res.send(template({items: docs}));
 
+//Send All Items
+
 module.exports.all = function(req, res){
 	var dbData = Time.find({}, function(err, docs){
 		if(err) 'db find error';
@@ -19,9 +21,9 @@ module.exports.all = function(req, res){
 	})
 };
 
-
+//Save New Item in DB
 module.exports.add = function(req, res){
-	//To save in db
+	
 	var mvTime = new Time({
 		_id: req.body._id,
 		today:Date.now(),
@@ -35,4 +37,12 @@ module.exports.add = function(req, res){
 		if(err){res.send(err)}
 		else res.send('ok');
 	});
-}
+};
+//Get Item By ID
+module.exports.getItem = function(req, res){
+	var dbData = Time.find({_id: req.params.id}, function(err, docs){
+		if(err) 'db find error';
+		
+		res.send(docs);
+	});
+};

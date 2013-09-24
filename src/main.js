@@ -49,19 +49,59 @@ $(document).ready(function(){
 			return this;
 		}
 	});
+	
+		// List Item View
+	var ListItemView = Backbone.View.extend({
+
+        "tagName" : "li",
+
+        events : {
+            "click .edit-item" : "editItem"
+        },
+
+        editItem: function() {
+            app.navigate("edit/"+this.model.get("_id"), {trigger: true});
+        },
+
+        initialize:function(){
+            this.template = Handlebars.templates["list-item"];
+        },
+        render:function(){
+            var res = this.template(this.model.toJSON());
+            this.$el.html(res);
+            return this;
+        }
+    });
+
+	
 		//List View
 	var ListView = Backbone.View.extend({
 		el: "#container",
 		initialize: function(){
 			this.template = Handlebars.templates['list']
 		},
-		render:function(){
-			console.log("res");
-			var res = this.template({items:this.model.toJSON()});
-			//console.log(res);
-			this.$el.html(res);
-			return this;
-		}
+		 render:function(){
+            res = this.template({});
+            this.$el.html(res);
+
+            var models = this.model.models;
+
+            var container = document.createDocumentFragment();
+
+            for (var i = 0; i < models.length; i++) {
+
+                var listIitemView = new ListItemView({
+                    model: models[i],
+                    parent: this
+                });
+
+                container.appendChild(listIitemView.render().el);
+            }
+
+            this.$el.find("#list-holder").html(container);
+
+            return this;
+        }
 	});
 	
 		//One Item View
@@ -95,7 +135,8 @@ $(document).ready(function(){
 		routes:{
 			"":"dashboard",
 			"list":"list",
-			"add" : "add"
+			"add" : "add",
+			"edit/:id": "edit"
 		},
 		
 		initialize:function(options){
@@ -104,6 +145,7 @@ $(document).ready(function(){
 			this.listView = null;
 			this.listView = null;
 			this.itemView = null;
+			this.editView = null;
 		},
 		
 		dashboard: function(){
@@ -130,7 +172,19 @@ $(document).ready(function(){
 			var modelItem = new Model();
 			this.itemView = new ItemView({model:modelItem});
 			this.itemView.render();
-		}
+		},
+		edit: function(id){
+            var that = this;
+            that.m = new Model();
+            that.m.set({"_id": id});
+            that.m.fetch({
+            	reset: true,
+                success: function () {
+                    that.editView = new ItemView({model: that.m});
+                    that.editView.render();
+                }
+            });
+        }
 		
 		
 	});
