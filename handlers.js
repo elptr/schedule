@@ -22,21 +22,17 @@ module.exports.all = function(req, res){
 
 module.exports.add = function(req, res){
 	//To save in db
-	var date = req.body.date;
-	var fdlmp = req.body.fdlmp;
-	var hours = req.body.hours;
-	var minutes = req.body.minutes;
-	
 	var mvTime = new Time({
+		_id: req.body._id,
 		today:Date.now(),
-		date: date,
-	  	hour:hours,
-	  	minute:minutes,
-	  	fdlmp:fdlmp
+		date: req.body.date,
+	  	hour:req.body.hour,
+	  	minute:req.body.minute,
+	  	fdlmp:req.body.fdlmp
 	});
 	
 	mvTime.save(function(err, mvTime){
-		if(err){console.log(err)}
-		else res.redirect('/api/items');
+		if(err){res.send(err)}
+		else res.send('ok');
 	});
 }

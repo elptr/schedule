@@ -11,8 +11,8 @@ var handlers = require('./handlers');
 app.use("/", express.static(__dirname + "/public"));
 app.use(express.bodyParser());
 
-app.get('/api/items', handlers.all);
-app.post('/api/items', handlers.add);
+app.get('/list', handlers.all);
+app.post('/item', handlers.add);
 
 
 app.listen(3000);
