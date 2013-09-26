@@ -72,3 +72,18 @@ module.exports.save = function(req, res){
 	);
 
 };
+
+
+//Delete Item From DB (By ID)
+module.exports.deleteItem = function(req, res){
+	Time.remove({_id: req.params.id },
+        function(err, item){
+			if (err) {
+				res.send(err);
+			} else {
+				res.send('ok');
+			}
+		}
+	);
+};
+

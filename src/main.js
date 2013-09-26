@@ -56,9 +56,25 @@ $(document).ready(function(){
         "tagName" : "li",
 
         events : {
-            "click .edit-item" : "editItem"
+            "click .edit-item" : "editItem",
+            "click .delete-button" : "deleteItem"
         },
-
+		deleteItem:function(){
+			var that = this;
+			that.model.destroy({
+				success: function (model, response) {
+					console.log("success");
+					//that.options.parent.render();
+               },
+               error:function(model, xhr, options){
+               	console.log("error");
+               	console.log(model);
+               	console.log(new Error("").stack);
+               	console.log("error end");
+               }
+			});
+		},
+		
         editItem: function() {
             app.navigate("edit/"+this.model.get("_id"), {trigger: true});
         },
@@ -122,9 +138,7 @@ $(document).ready(function(){
 			this.template = Handlebars.templates['item'];
 		},
 		render:function(){
-			console.log("1");
-			console.log(this.model.toJSON());
-			console.log("2");
+			//console.log(this.model.toJSON());
 			var res = this.template(this.model.toJSON());
 			this.$el.html(res);
 			return this;
@@ -176,7 +190,6 @@ $(document).ready(function(){
 			this.itemView.render();
 		},
 		edit: function(id){
-			console.log("Hi");
             var that = this;
             that.m = new Model();
             that.m.set({"_id": id});
