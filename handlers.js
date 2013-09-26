@@ -79,9 +79,9 @@ module.exports.deleteItem = function(req, res){
 	Time.remove({_id: req.params.id },
         function(err, item){
 			if (err) {
-				res.send(err);
+				res.send({"msg_12532":err});
 			} else {
-				res.send('ok');
+				res.send({"msg_12532":"ok"});
 			}
 		}
 	);

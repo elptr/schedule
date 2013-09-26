@@ -153,6 +153,7 @@ $(document).ready(function(){
 			"list":"list",
 			"add" : "add",
 			"edit/:id": "edit"
+			//,  "list/:allBeforeThisDate": "filter"   , call   .filter(allBeforeThisDate), almost the same as   .list()
 		},
 		
 		initialize:function(options){
@@ -178,6 +179,9 @@ $(document).ready(function(){
 			}
 			var that = this;
 			this.collection.fetch({
+				// TODO add following when you filter, it'll send parameters to the server -then-> request MongoDb with them:
+				// data: { allBeforeThisDate: "11.11.2013", allAfterThisDate: "10.10.2013", .... },
+
 				reset:true,
 				success: function(){
 					that.listView.render();
