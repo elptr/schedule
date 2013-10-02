@@ -5,8 +5,11 @@ goog.require("Collection");
 goog.require("DashboardView");
 goog.require("ItemView");
 goog.require("ListView");
-goog.require("Router");
 
+goog.require("DueDateModel");
+goog.require("DueDateView");
+
+goog.require("Router");
 
 
 $(document).ready(function(){
@@ -28,7 +31,6 @@ $(document).ready(function(){
     };
     
 	
-
 //Add _id to work with mongoose and Run BB
 	Backbone.Model.prototype.idAttribute = '_id';
 	var app = new Router();

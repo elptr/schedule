@@ -1,8 +1,5 @@
 goog.provide("DashboardView");
 
-
-
-
 //Dashboard View
 DashboardView = Backbone.View.extend({
 	el: "#container",

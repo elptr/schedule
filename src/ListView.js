@@ -1,6 +1,5 @@
 goog.provide("ListView");
 
-	
 // List Item View
 ListView.ListItemView = Backbone.View.extend({
 

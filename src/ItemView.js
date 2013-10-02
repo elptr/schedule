@@ -1,7 +1,5 @@
 goog.provide("ItemView");
 
-
-
 //One Item View
 ItemView = Backbone.View.extend({
 	el: "#container",

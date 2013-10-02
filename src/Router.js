@@ -6,7 +6,8 @@ Router = Backbone.Router.extend({
 		"":"dashboard",
 		"list":"list",
 		"add" : "add",
-		"edit/:id": "edit"
+		"edit/:id": "edit",
+		"duedate":"duedate"
 		//,  "list/:allBeforeThisDate": "filter"   , call   .filter(allBeforeThisDate), almost the same as   .list()
 	},
 	
@@ -14,9 +15,38 @@ Router = Backbone.Router.extend({
 		this.collection = null;
 		this.dashboardView = null;
 		this.listView = null;
-		this.listView = null;
 		this.itemView = null;
 		this.editView = null;
+		this.dueDate = null;
+	},
+	
+	duedate:function(){
+		/*var dueDateModel = new DueDateModel();
+		
+		if(!this.dueDate){
+			this.dueDate = new DueDateView({model:dueDateModel});
+		}
+		this.dueDate.render();
+		*/
+		
+		var that = this;
+		this.dueDateModel = new DueDateModel();
+		
+		this.dueDate = new DueDateView({model:this.dueDateModel});
+		
+		
+		this.dueDateModel.fetch({
+			reset:true,
+			success: function(){
+				that.dueDate.render();
+			},
+			error:function(){
+				
+				console.log(new Error().stack);
+			}
+			
+		});
+		
 	},
 	
 	dashboard: function(){
