@@ -1,10 +1,11 @@
 <html>
 <head>
-	
+	<link rel="stylesheet/less" type="text/css" href="lib/jquery-ui.css" />
 	<link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+	
 	<link rel="stylesheet" type="text/css" href="http://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,300,700,600">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	
+	<script type="text/javascript" src="lib/jquery-ui.js"></script>
 	
 	<script type="text/javascript">
 		    less = {
@@ -22,6 +23,14 @@
 		                            //resource
 		    };
 		</script>
+		<script>
+		  $(function() {
+		    $( "#datepicker" ).datepicker({
+		    	changeMonth: true,
+      			changeYear: true
+		    });
+		  });
+  		</script>
 		<script type="text/javascript" src="lib/less-1.4.1.min.js"></script>
 		<script type="text/javascript" src="lib/underscore-min.js"></script>
 		<script type="text/javascript" src="lib/backbone.js"></script>

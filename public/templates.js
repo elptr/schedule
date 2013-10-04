@@ -63,7 +63,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers.fdlmp) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.fdlmp; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\"/>\r\n	</div>\r\n	\r\n	<input type=\"submit\" class=\"submitButton\" value=\"Add\"/>\r\n	<button class=\"edit\">Edit Due Date</button>\r\n</form>";
+    + "\"/>\r\n	</div>\r\n	\r\n	<input type=\"submit\" class=\"submitButton\" value=\"Add\"/>\r\n</form>";
   return buffer;
   });
 templates['item'] = template(function (Handlebars,depth0,helpers,partials,data) {

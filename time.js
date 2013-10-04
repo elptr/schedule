@@ -27,7 +27,13 @@ app.delete('/item/:id', handlersData.deleteItem); //To Delete Item
 /* Due Date Shcema */
 app.post('/duedate', handlersDueDate.addDueDate);
 app.get('/duedate', handlersDueDate.getDueDate);
-//app.put('/duedate', handlersDueDate.saveDueDate);
+app.put('/duedate/:id', handlersDueDate.editDueDate);
+
+
+//Get Data For Charts
+//app.get('/charts/duedate', handlersDueDate.getDDForCharts);
+//app.get('/charts/filter', handlersDueDate.getFilterDataForCharts);
+
 
 app.listen(3000);
 console.log("listen 3000 ");

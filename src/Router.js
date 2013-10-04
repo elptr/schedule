@@ -7,7 +7,9 @@ Router = Backbone.Router.extend({
 		"list":"list",
 		"add" : "add",
 		"edit/:id": "edit",
-		"duedate":"duedate"
+		"duedate":"duedate",
+		"duedate/:id": "editDueDate",
+		"charts/:date":"chartsDay"
 		//,  "list/:allBeforeThisDate": "filter"   , call   .filter(allBeforeThisDate), almost the same as   .list()
 	},
 	
@@ -18,6 +20,8 @@ Router = Backbone.Router.extend({
 		this.itemView = null;
 		this.editView = null;
 		this.dueDate = null;
+		this.dueDateModel = null;
+		this.m = null;
 	},
 	
 	duedate:function(){
@@ -31,9 +35,7 @@ Router = Backbone.Router.extend({
 		
 		var that = this;
 		this.dueDateModel = new DueDateModel();
-		
 		this.dueDate = new DueDateView({model:this.dueDateModel});
-		
 		
 		this.dueDateModel.fetch({
 			reset:true,
@@ -41,7 +43,6 @@ Router = Backbone.Router.extend({
 				that.dueDate.render();
 			},
 			error:function(){
-				
 				console.log(new Error().stack);
 			}
 			
@@ -49,6 +50,27 @@ Router = Backbone.Router.extend({
 		
 	},
 	
+	editDueDate: function(id){
+        var that = this;
+        that.m = new DueDateModel();
+        
+        that.m.set({"_id": _id});
+        that.m.fetch({
+        	reset:true,
+			success: function(){
+				that.dueDate = new DueDateView({model:that.m});
+				that.dueDate.render();
+			},
+			error:function(){
+				console.log(new Error().stack);
+			}
+        });
+   },
+
+	chartsDay: function(date){
+		
+	
+	},
 	dashboard: function(){
 		if(!this.dashboardView){
 			this.dashboardView = new DashboardView({});

@@ -1,0 +1,35 @@
+<div id="due-date-header">	
+		{{#if}}
+			<label>
+				Estimated Due Date -
+			</label> 
+			<div id="dueDate">
+				{{dueDate}}
+			</div>
+		{{else}} 
+			<label>
+				First day of last menstrual period 
+			</label>
+			<div id="fdlmp">
+				{{fdlmp}}
+				
+			</div>
+		{{/if}}
+</div>
+<div id="filters">
+	<div class="select day">
+		<label for="day">Choose Date</label>
+		<input type="text" name="day" class="datepicker">
+	</div>
+	<div class="select week">
+		<label for="week">Choose Week</label>
+		<input type="text" name="week" class="datepicker">
+	</div>
+	<div class="select month">
+		<label for="year">Choose Week</label>
+		<input type="text" name="year" class="datepicker">
+	</div>
+</div>
+
+
+<div id="canvas-field"></div>
