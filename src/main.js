@@ -1,7 +1,7 @@
 goog.provide("main");
 
-goog.require("DateModel");
-goog.require("Collection");
+goog.require("KickModel");
+goog.require("KicksCollection");
 goog.require("DashboardView");
 goog.require("ItemView");
 goog.require("ListView");

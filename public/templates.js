@@ -16,7 +16,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\r\n			<label>\r\n				Estimated Due Date -\r\n			</label> \r\n			<div>\r\n				";
+  buffer += "\r\n			<label>\r\n				Estimated Due Date -\r\n			</label> \r\n			<div id=\"dueDate\">\r\n				";
   if (stack1 = helpers.dueDate) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.dueDate; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -27,7 +27,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += " \r\n			<label>\r\n				First day of last menstrual period \r\n			</label>\r\n			<div>\r\n				";
+  buffer += " \r\n			<label>\r\n				First day of last menstrual period \r\n			</label>\r\n			<div id=\"fdlmp\">\r\n				";
   if (stack1 = helpers.fdlmp) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.fdlmp; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)

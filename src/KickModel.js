@@ -1,8 +1,8 @@
-goog.provide("DateModel");
+goog.provide("KickModel");
 
 
 //DateModel
-DateModel = Backbone.Model.extend({
+KickModel = Backbone.Model.extend({
 	urlRoot: '/item',
     defaults: {
 		date: "",

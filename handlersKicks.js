@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var express = require("express");
-var Time = require('./dataShema').Time;
+var Kick = require('./kickSchema').Kick;
 var app = express();
 
 //Send All Items
 module.exports.all = function(req, res){
-	var dbData = Time.find({}, function(err, docs){
+	var dbData = Kick.find({}, function(err, docs){
 		if(err) 'db find error';
 		
 		res.send(docs);
@@ -15,7 +15,7 @@ module.exports.all = function(req, res){
 //Save New Item in DB
 module.exports.add = function(req, res){
 	
-	var mvTime = new Time({
+	var mvKick = new Kick({
 		_id: req.body._id,
 		today:Date.now(),
 		date: req.body.date,
@@ -23,14 +23,14 @@ module.exports.add = function(req, res){
 	  	minute:req.body.minute
 	});
 	
-	mvTime.save(function(err, mvTime){
+	mvKick.save(function(err, mvKick){
 		if(err){res.send(err)}
 		else res.send('ok');
 	});
 };
 //Get Item By ID
 module.exports.getItem = function(req, res){
-	var dbData = Time.find({_id: req.params.id}, function(err, docs){
+	var dbData = Kick.find({_id: req.params.id}, function(err, docs){
 		if(err) 'db find error';
 		//console.log(docs);
 		res.send(docs[0]);
@@ -41,7 +41,7 @@ module.exports.getItem = function(req, res){
 //Save Edited Item (By ID)
 module.exports.save = function(req, res){
 	
-	Time.update({_id: req.params.id },
+	Kick.update({_id: req.params.id },
 		{
 			today: Date.now(),
 			"date": req.body.date,
@@ -65,7 +65,7 @@ module.exports.save = function(req, res){
 
 //Delete Item From DB (By ID)
 module.exports.deleteItem = function(req, res){
-	Time.remove({_id: req.params.id },
+	Kick.remove({_id: req.params.id },
         function(err, item){
 			if (err) {
 				res.send({"msg_12532":err});

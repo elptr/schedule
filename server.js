@@ -3,10 +3,10 @@ var express = require("express");
 var app = express();
 
 
-var Time = require('./dataShema').Time;
-var DueDate = require('./dataShema').DueDate;
+var Kick = require('./kickSchema').Kick;
+var DueDate = require('./dueDateSchema').DueDate;
 
-var handlersData = require('./handlersData');
+var handlersKicks = require('./handlersKicks');
 var handlersDueDate = require('./handlersDueDate');
 
 mongoose.connect('mongodb://localhost/node-test');
@@ -16,13 +16,13 @@ mongoose.connect('mongodb://localhost/node-test');
 app.use("/", express.static(__dirname + "/public"));
 app.use(express.bodyParser());
 
-app.get('/list', handlersData.all);
-app.post('/item', handlersData.add);
+app.get('/list', handlersKicks.all);
+app.post('/item', handlersKicks.add);
 
-app.get('/item/:id', handlersData.getItem); // Show Item By ID
-app.put('/item/:id', handlersData.save); //To Save Edited Item
+app.get('/item/:id', handlersKicks.getItem); // Show Item By ID
+app.put('/item/:id', handlersKicks.save); //To Save Edited Item
 
-app.delete('/item/:id', handlersData.deleteItem); //To Delete Item
+app.delete('/item/:id', handlersKicks.deleteItem); //To Delete Item
 
 /* Due Date Shcema */
 app.post('/duedate', handlersDueDate.addDueDate);

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var express = require("express");
-var DueDate = require('./DueDateShema').DueDate;
+var DueDate = require('./dueDateSchema').DueDate;
 var app = express();
 
 

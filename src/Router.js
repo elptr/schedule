@@ -14,7 +14,7 @@ Router = Backbone.Router.extend({
 	},
 	
 	initialize:function(options){
-		this.collection = null;
+		this.kicksCollection = null;
 		this.dashboardView = null;
 		this.listView = null;
 		this.itemView = null;
@@ -79,12 +79,12 @@ Router = Backbone.Router.extend({
 	},
 	
 	list: function(){
-		if(!this.collection){
-			this.collection = new Collection();
-			this.listView = new ListView.ListView({model:this.collection});
+		if(!this.kicksCollection){
+			this.kicksCollection = new KicksCollection();
+			this.listView = new ListView.ListView({model:this.kicksCollection});
 		}
 		var that = this;
-		this.collection.fetch({
+		this.kicksCollection.fetch({
 			// TODO add following when you filter, it'll send parameters to the server -then-> request MongoDb with them:
 			// data: { allBeforeThisDate: "11.11.2013", allAfterThisDate: "10.10.2013", .... },
 
@@ -95,13 +95,13 @@ Router = Backbone.Router.extend({
 		});
 	},
 	add:function(){
-		var modelItem = new DateModel();
+		var modelItem = new KickModel();
 		this.itemView = new ItemView({model:modelItem});
 		this.itemView.render();
 	},
 	edit: function(id){
         var that = this;
-        that.m = new DateModel();
+        that.m = new KickModel();
         that.m.set({"_id": id});
         that.m.fetch({            	
             success: function () {
